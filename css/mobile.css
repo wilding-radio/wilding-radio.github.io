@@ -1,0 +1,86 @@
+@media screen and (orientation:portrait),
+screen and (max-width:768px) {
+	body,
+	input,
+	textarea,
+	button,
+	.air,
+	.water,
+	.smaller-text {
+		font-family: "Maximaef";
+		letter-spacing:-0.5px;
+		font-size:18px;
+		line-height:23px;
+	}
+
+	.fullscreen-banner {
+		background-position: 20% center;
+	}
+
+	.anchorbar {
+		display: none; /*set manually inline css on about page*/
+		left: 5vw;
+		right: auto;
+		top: calc(5vw + 30px);
+	}
+	.sidebar {
+		left:5vw;
+		top:5vw;
+	}
+	.content__main {
+		width:55%;
+		margin-left:40%;
+	}
+	audio {
+		width:100%;
+	}
+	input[type=text], textarea{
+		width:100%;
+		padding-left:0;
+		padding-right:0;
+		box-sizing: border-box;
+	}
+	.crossfader-slider {
+		left:5%;
+		top:10vh;
+	}
+	.crossfader-slider__input {
+		width: 40vh;
+	}
+	.crossfader-slider__instructions {
+		top: calc(44vh + 7px);
+/*		top:auto;*/
+/*		bottom:100vh;*/
+		left:0%;
+		width:38%;
+
+	}
+	.content {
+		font-size:20px;
+		line-height:24px;
+	}
+	.crossfader-slider__playpause {
+		top: calc(20vh - 2px);
+		left:calc(5% + 50px);
+	}
+	.crossfader-slider__uparrow {
+	  left:-7px;
+	  top: calc(15vh + 2px);
+	}
+	.crossfader-slider__downarrow {
+	  left:-7px;
+	  top: calc(25vh + 2px);
+	}
+	.logo {
+		width:27%;
+	}
+}
+
+@media only screen and (max-height: 575.98px) and (orientation: landscape) {
+	.sidebar {
+		top:1vw;
+	}
+	.crossfader-slider__long-instructions {
+		display: none;
+	}
+}

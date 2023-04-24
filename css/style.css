@@ -1,0 +1,300 @@
+/*
+######################## global ########################
+*/
+
+body {
+  margin:0;
+  padding:0;
+  overflow-y:scroll;
+  overflow-x:hidden;
+}
+.break {
+  height:55px;
+}
+.underline {
+  text-decoration: underline;
+}
+.bold {
+  font-weight: bold;
+}
+hr {
+  margin:0;
+}
+.logo {
+  margin-top:100px;
+  width: 135px;
+}
+
+/*
+######################## typography ########################
+*/
+
+@font-face {
+  font-family: "Maximaef";
+  font-weight:regular;
+  src:local("Maximaef"), url("../assets/font/maximaef-light.otf") format("opentype");
+}
+@font-face {
+  font-family: "Maximaef";
+  font-weight:bold;
+  src:local("Maximaef"), url("../assets/font/maximaef-medium.otf") format("opentype");
+}
+
+body,
+input,
+textarea,
+button,
+.smaller-text {
+  font-family: "Maximaef";
+  letter-spacing:-0.5px;
+  font-size:24px;
+  line-height:28px;
+}
+a {
+  color:black;
+  text-decoration: none;
+}
+hr {
+  border-top: 2px solid black;
+}
+
+
+
+/*
+######################## sidebar ########################
+*/
+
+.sidebar {
+  z-index: 1;
+  position:fixed;
+  left:50px;
+  top:50px;
+}
+.sidebar a {
+  color:black;
+  text-decoration: underline;
+}
+
+.sidebar--white a {
+  color:white;
+}
+
+/*
+######################## anchorbar ########################
+*/
+
+.anchorbar {
+  z-index: 1;
+  position:fixed;
+  left:75%;
+  top:50px;
+}
+.anchorbar a {
+  color:black;
+}
+
+
+/*
+######################## fullscreen-banner ########################
+*/
+
+.fullscreen-banner {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height:100vh;
+  background-image: url("../assets/img/knepp.jpg");
+  background-size: cover;
+  background-position: 14% center;
+  clip-path: inset(0px);
+  overflow:hidden;
+}
+
+/*
+######################## content ########################
+*/
+.content {
+  font-size:28px;
+  line-height:34px;
+  position: relative;
+  display: flex;
+}
+
+.content__main {
+  margin-left:450px;
+  width:35%;
+}
+
+/*
+######################## feedback ########################
+*/
+
+
+input[type=text],
+textarea {
+  margin-top:12.5px;
+  width:80%;
+  border: 2px solid black;
+  border-radius:0px;
+  resize:none;
+  outline:none;
+}
+
+.feedback__submit {
+  color:black;
+  border: 2px solid black;
+  padding:5px 10px;
+}
+.feedback__submit:hover {
+  cursor:pointer;
+}
+
+
+/*
+######################## crossfader-slider ########################
+*/
+.crossfader-slider {
+  z-index: 1;
+  position: fixed;
+  top:12.5vh;
+  left: 50px;
+}
+
+.crossfader-slider__instructions {
+  width:auto;
+  position: absolute;
+  top:calc(37vh + 78px);
+  left:14%;
+  color:black;
+}
+.crossfader-slider__playpause {
+  position: absolute;
+  top:calc(37vh + 7px);
+  left:14%;
+  height:36px;
+  color:black;
+  cursor: pointer;
+  border:none;
+  background-color: transparent;
+  text-align: center;
+
+}
+
+.crossfader-slider__uparrow {
+  color:black;
+  position:absolute;
+  left:-7px;
+  top: calc(30vh + 9px);
+}
+.crossfader-slider__downarrow {
+  color:black;
+  position:absolute;
+  left:-7px;
+  top: calc(44vh + 9px);
+}
+
+.crossfader-slider__input {
+  transform-origin: 11px 11px;
+  transform: rotate(90deg);
+  width: 75vh;
+  height: 2px;
+  border-radius: 0px;
+  cursor: pointer;
+  background: black;
+  outline:none;
+  -webkit-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: none !important;
+  appearance: none;
+}
+
+.crossfader-slider__input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: none !important;
+  appearance: none;
+  height: 40px;
+  width: 2px;
+  border: none;
+  border-radius: 0;
+  background: black;
+
+  /*background:transparent;
+  border: 2px solid black;
+  border-radius: 50%;
+  width:40px;*/
+}
+
+.crossfader-slider__input::-moz-range-thumb {
+  -webkit-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: none !important;
+  appearance: none;
+  height: 40px;
+  background: black;
+  border: none;
+  width: 2px;
+  border-radius: 0;
+
+  /*background:transparent;
+  border: 2px solid black;
+  border-radius: 50%;
+  width:40px;*/
+}
+
+.crossfader-slider .crossfader-slider__input::-webkit-slider-thumb:hover {
+  cursor:grab;
+}
+.crossfader-slider .crossfader-slider__input::-moz-range-thumb:hover {
+  cursor:grab;
+}
+
+.crossfader-slider--white .crossfader-slider__playpause {
+  color:white;
+  border-color:white;
+}
+.crossfader-slider--white .crossfader-slider__input {
+  background: white;
+}
+.crossfader-slider--white .crossfader-slider__input::-webkit-slider-thumb {
+  background:white;
+/*  border-color:white;*/
+}
+.crossfader-slider--white .crossfader-slider__input::-moz-range-thumb {
+  background:white;
+/*  border-color:white;*/
+}
+.crossfader-slider--white .crossfader-slider__instructions {
+  color:white;
+}
+
+.crossfader-slider--white .crossfader-slider__uparrow,
+.crossfader-slider--white .crossfader-slider__downarrow {
+  color:white;
+}
+
+
+.crossfader-slider--transparent {
+  z-index:2;
+}
+.crossfader-slider--transparent .crossfader-slider__input {
+  background:transparent;
+}
+.crossfader-slider--transparent .crossfader-slider__input::-webkit-slider-thumb {
+  background:transparent;
+  border:none;
+  width:30px;
+}
+.crossfader-slider--transparent .crossfader-slider__input::-moz-range-thumb {
+  background:transparent;
+  border:none;
+  width:30px;
+}
+
+.air, .water {
+  font-size:21px;
+  line-height:28px;
+}
