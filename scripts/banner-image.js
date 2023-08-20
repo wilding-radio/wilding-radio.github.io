@@ -56,6 +56,6 @@ function loadBanner(elem){
 		imageUrl = "dusk.jpg";
 	}
 
-	elem.src = "file:///home/max/Type/work/wilding_dot_radio/v2_june_2023/site2/assets/img/knepp/"+imageUrl;
+	elem.src = "https://wilding.radio/assets/img/knepp/"+imageUrl;
 	console.log("Loaded background image: "+imageUrl);
 }
