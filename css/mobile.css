@@ -1,16 +1,35 @@
-@media screen and (orientation:portrait),
-screen and (max-width:768px) {
+@media screen and (orientation:portrait) {
+/*,screen and (max-width:768px) {*/
 	body,
 	input,
 	textarea,
 	button,
 	.air,
 	.water,
-	.smaller-text {
+	.smaller-text,
+	.header a {
 		font-family: "Maximaef";
 		letter-spacing:-0.5px;
-		font-size:18px;
-		line-height:23px;
+		font-size:16px;
+		line-height:21px;
+/*		font-size:18px;*/
+/*		line-height:23px;*/
+	}
+	.larger-text {
+		font-size: 28px;
+		line-height: 32px;	
+	}
+
+	.desktop-only {
+		display: none;
+	}
+	.mobile-only {
+	  display: block;
+	}
+
+	.no-underline:hover {
+	  text-decoration: none;
+	  border-bottom: none;
 	}
 
 	.fullscreen-banner {
@@ -23,13 +42,41 @@ screen and (max-width:768px) {
 		right: auto;
 		top: calc(5vw + 30px);
 	}
-	.sidebar {
-		left:5vw;
-		top:5vw;
+	.header {
+/*		padding: 2.5vw 5vw calc(5vw + 15px) 5vw; */
+		padding: 2.5vw 0 0 5vw; 
+		width: auto;
 	}
+
+	/* break wilding.radio title*/
+	.header > div:first-child a{
+		word-break: break-all;
+		width: 55px;
+		display: inline-block;
+	}
+
+	/* knepp link as badge */
+	#listen-to-knepp {
+		position: fixed;
+		top: 253px;
+		width: 55px;
+		height: 55px;
+		padding: 20px;
+		left: 7px;
+	}
+
+	#listen-to-knepp  * {
+		font-size: 17px;
+		line-height: 19px;
+	}
+
+
 	.content__main {
-		width:55%;
-		margin-left:40%;
+/*	  margin-left: calc(5vw + 135px);*/
+	  margin-left: calc(5vw + 100px);
+	  width: auto;
+	  margin-right: 5vw;
+	  padding-top:2.5vw;
 	}
 	audio {
 		width:100%;
@@ -41,46 +88,233 @@ screen and (max-width:768px) {
 		box-sizing: border-box;
 	}
 	.crossfader-slider {
-		left:5%;
-		top:10vh;
+		left:5vw;
+/*		top:10vh;*/
+		top: 75px;
 	}
 	.crossfader-slider__input {
+		/* transform origin changes due to different font size */
+/*		transform-origin: 19px 7px;*/
+		transform-origin: 13px 0px;
 		width: 40vh;
+	}
+
+	.crossfader-slider__input::-webkit-slider-thumb {
+	  height: 30px;
+	}
+
+	.crossfader-slider__input::-moz-range-thumb {
+	  height: 30px;
 	}
 	.crossfader-slider__instructions {
 		top: calc(44vh + 7px);
-/*		top:auto;*/
-/*		bottom:100vh;*/
 		left:0%;
 		width:38%;
 
+	}
+	.crossfader-slider__long-instructions {
+/*		width: 100px;*/
+		width: 75px;
+	}
+	.crossfader-slider__error-text {
+		display: block;
+		width: 0px;
+		line-height: 21px;
+		font-size: 16px;
+		/*line-height: 23px;
+		font-size: 18px;*/
+		padding:0;
+		padding-top: 5px;
+	}
+	.content {
+		font-size:18px;
+		line-height:22px;
+	}
+	.crossfader-slider__player {
+		height: 30px;
+		line-height: 30px;
+		top: calc(20vh - 15px);
+/*		left:calc(5% + 50px);*/
+		left:calc(5% + 27px);
+	}
+	.crossfader-slider__uparrow {
+	  left:-7px;
+	  top: calc(20vh - 47px);
+	}
+	.crossfader-slider__downarrow {
+	  left:-7px;
+	  top: calc(20vh + 31px);
+	}
+	.logo {
+		width:27%;
+	}
+	.no-underline:hover {
+	  text-decoration: none;
+	  border-bottom: none;
+	}
+	.footer-sketch {
+	  width:100%;
+	  margin-left:0%
+	}
+	.about-logo,
+	.about-logo-placeholder
+	 {
+		top: 75px;
+		/*left: 5vw;
+		width: 107px;*/
+		left: 11px;
+		width: 85px;
+	}
+	.shl-logo {
+		width: 70%;
+		height: auto;
+		max-width: 200px;
+	}
+	.esrc-logo {
+		width: 100%;
+		height: auto;
+		max-width: 350px;
+		vertical-align: top;
+	}
+}
+
+
+@media screen and (max-width: 1220px) and (orientation: landscape) {
+	/* knepp link as badge */
+	#listen-to-knepp {
+		left: 53px;
+		top: 470px;
+	}
+}
+
+
+@media screen and (max-height: 575.98px) and (orientation: landscape) {
+	body,
+	input,
+	textarea,
+	button,
+	.air,
+	.water,
+	.smaller-text,
+	.header a {
+		font-family: "Maximaef";
+		letter-spacing:-0.5px;
+		font-size:18px;
+		line-height:23px;
+	}
+	.larger-text {
+		font-size: 28px;
+		line-height: 32px;	
 	}
 	.content {
 		font-size:20px;
 		line-height:24px;
 	}
-	.crossfader-slider__playpause {
-		top: calc(20vh - 2px);
-		left:calc(5% + 50px);
+	.content__main {
+	  margin-left: 300px;
+	  width: auto;
+	  margin-right: 5vw;
+	  padding-top:3.5vh;
+	}
+
+	.desktop-only {
+		display: none;
+	}
+	.mobile-only {
+	  display: block;
+	}
+
+	/*.header > *:first-child {
+		width: calc( 300px - 70px );
+	}*/
+	.header {
+		padding-top: 3.5vh;
+		padding-right:0;
+		padding-bottom:0;
+		width: auto;
+	}
+
+	/* knepp link as badge */
+	#listen-to-knepp {
+		position: absolute;
+		left: 90px;
+		top: calc(97.5vh - 111px);
+		width: 50px;
+		height: 81px;
+		padding: 16px 29px;
+	}
+	#listen-to-knepp  * {
+		font-size: 19px;
+		line-height:25px;
+	}
+	.content__main > span:first-of-type > span:first-of-type { /* crop the heading so it doesn't overlap the badge */
+		display: inline-block;
+		width: 75%;
+	}
+
+	
+
+
+	.crossfader-slider {
+		top: 17.5vh;
+	}
+	.crossfader-slider__input {
+		width: 65vh;
+		transform-origin: 19px 7px;
 	}
 	.crossfader-slider__uparrow {
 	  left:-7px;
-	  top: calc(15vh + 2px);
+	  top: calc(50vh - 17.5vh - 37px);
 	}
 	.crossfader-slider__downarrow {
 	  left:-7px;
-	  top: calc(25vh + 2px);
+	  top: calc(50vh - 17.5vh + 21px);
 	}
-	.logo {
-		width:27%;
+	.crossfader-slider__player {
+		top: calc(50vh - 17.5vh - 16px);
+		left:calc(5% + 50px);
 	}
-}
 
-@media only screen and (max-height: 575.98px) and (orientation: landscape) {
-	.sidebar {
-		top:1vw;
+	.crossfader-slider__instructions {
+		top: calc(50vh - 17.5vh + 56px);
+		left:calc(5% + 50px);
+		width:38%;
 	}
-	.crossfader-slider__long-instructions {
+	.about-logo-placeholder {
+		top: 57px;
+		left: 94px;
+		width: 100px;
+		height: calc(95vh - 177px);
+/*		width: 117px;*/
+/*		height: calc(100vh - 64px - 10px);*/
+	}
+	.about-logo {
+		display: none;
+	}
+
+	.shl-logo {
+		width: 30%;
+		max-width: 200px;
+		padding-right: 5%;
+		height: auto;
+	}
+	.esrc-logo {
+		width: 50%;
+		max-width:350px;
+		height: auto;
+		vertical-align: top;
+	}
+
+	.crossfader-slider__error-text {
+		display: block;
+/*		width: 0px;*/
+		white-space: nowrap;
+		line-height: 23px;
+		font-size: 18px;
+		padding:0;
+		padding-top: 5px;
+	}
+	.crossfader-slider__long-instructions, .anchorbar {
 		display: none;
 	}
 }

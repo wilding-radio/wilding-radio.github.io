@@ -20,7 +20,7 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta property="og:title" content="wilding.radio" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://wilding.radio" />
@@ -38,51 +38,83 @@
   <meta name="twitter:card" content="summary_large_image">
   
   <title>wilding.radio</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=24">
-  <link rel="stylesheet" type="text/css" href="css/mobile.css?v=24">
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=25">
+  <link rel="stylesheet" type="text/css" href="css/mobile.css?v=25">
+  <script type="text/javascript" src="scripts/jquery.min.js"></script>
   <script type="text/javascript" src="scripts/crossfader-slider.js?v=24"></script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script type="text/javascript" src="scripts/feedback-form.js?v=2"></script>
-  <script type="text/javascript" src="scripts/jquery.min.js"></script>
+  <script type="text/javascript" src="scripts/banner-image.js?v=1"></script>
   <script type="text/javascript" src="scripts/anchorbar.js"></script>
+  <script type="text/javascript" src="scripts/archive_player.js"></script>
+  <script type="text/javascript" src="scripts/random-footer.js"></script>
+  <script type="text/javascript" src="scripts/lazyload.js"></script>
+  <link rel="stylesheet" href="css/archive_player.css">
+  
   <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PBSL2YQNP"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-5PBSL2YQNP'); </script>
 </head>
 <body>
 
-  <audio class="air-audio"src="https://locus.creacast.com:9443/knepp_air.mp3" crossorigin="anonymous"></audio>
-  <audio class="water-audio" src="https://locus.creacast.com:9443/knepp_water.mp3" crossorigin="anonymous"></audio>
-
-  <div class="sidebar"><a href="about.html">about</a></div>
+  <audio class="air-audio" data-src="https://locus.creacast.com:9443/knepp_air.mp3" crossorigin="anonymous"></audio>
+  <audio class="water-audio" data-src="https://locus.creacast.com:9443/knepp_water.mp3" crossorigin="anonymous"></audio>
+  <div class="header">
+    <div><a class="no-underline" href="about.html">wilding.radio</a></div>
+    <!-- <div><a class="" href="index.html">Knepp</a></div>
+    <div><a class="no-underline" href="about.html">About</a></div> -->
+  </div>
 
   <div class="anchorbar">
-    <a class="anchorbar__anchor" href="#knepp">Listen to Knepp</a><br><br>
-    <a class="anchorbar__anchor" href="#share-your-thoughts">Share your thoughts</a><br><br>
-    <!-- <a class="anchorbar__anchor" href="#archive">Archive</a><br><br> -->
+    <a class="anchorbar__anchor" href="#knepp">Knepp</a><br>
+    <a class="anchorbar__anchor no-underline" href="#archive">Archive</a><br>
+    <a class="anchorbar__anchor no-underline" href="#share-your-thoughts">Share your thoughts</a><br>
   </div>
 
   <div class="crossfader-slider">
     <input type="range" autocomplete="off" min="0" max="100" value="50" class="crossfader-slider__input">
-    <img class='crossfader-slider__playpause' src="assets/img/play.svg" onclick="playPause()">
+    <div class="crossfader-slider__player">
+      <img class="crossfader-slider__playpause" src="assets/img/play.svg" onclick="playPause()">
+      <span class="crossfader-slider__error-text">Stream offline</span>
+    </div>
     <span class="crossfader-slider__uparrow">&uarr;</span>
     <span class="crossfader-slider__downarrow">&darr;</span>
     <div class="crossfader-slider__instructions">
-      <!-- <span><span class="crossfader-slider__long-instructions">Press play <br> then use the slider <br>to fade between<br><br></span>air&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="air">50%</span><br>water&nbsp;&nbsp;<span class="water">50%</span></span> -->
-     <span><span class="crossfader-slider__long-instructions">Sorry! <br> the stream is down <br> please come back soon ... <br><br></span>air&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="air">50%</span><br>water&nbsp;&nbsp;<span class="water">50%</span></span>
+      <span><span class="crossfader-slider__long-instructions">
+        <!-- Press play and use the slider to fade between: -->
+        Sorry! The stream is currently down. Please come back soon...
+        <br><br>
+      </span>Air&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="air">50%</span><br>Water&nbsp;&nbsp;
+      <span class="water">50%</span></span>
     </div>
   </div>
 
-  <div class="fullscreen-banner anchor-section" id="knepp">
-    <div class="sidebar sidebar--white"><a href="about.html">about</a></div>
+  <div class="fullscreen-banner anchor-section">
+    <img class="fullscreen-banner__image" src="assets/img/white.jpg" onload="loadBanner(this);">
+    
+    <div class="header header--white">
+      <div><a class="no-underline" href="about.html">wilding.radio</a></div>
+      <!--<div><a class="" href="index.html">Knepp</a></div>
+      <div><a class="no-underline" href="about.html">About</a></div> -->
+    </div>
 
     <div class="crossfader-slider crossfader-slider--white">
-    <input type="range" autocomplete="off" min="0" max="100" value="50" class="crossfader-slider__input">
-    <img class='crossfader-slider__playpause' src="assets/img/play_white.svg" onclick="playPause()">
-    <span class="crossfader-slider__uparrow">&uarr;</span>
-    <span class="crossfader-slider__downarrow">&darr;</span>
-    <div class="crossfader-slider__instructions">
-     <span><span class="crossfader-slider__long-instructions">Sorry!! <br> the stream is down <br> please come back soon ...<br><br></span>air&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="air">50%</span><br>water&nbsp;&nbsp;<span class="water">50%</span></span>
+      <input type="range" autocomplete="off" min="0" max="100" value="50" class="crossfader-slider__input">
+      <div class="crossfader-slider__player">
+        <img class="crossfader-slider__playpause" src="assets/img/play_white.svg" onclick="playPause()">
+        <span class="crossfader-slider__error-text">Stream offline</span>
+      </div>
+      <span class="crossfader-slider__uparrow">&uarr;</span>
+      <span class="crossfader-slider__downarrow">&darr;</span>
+      <div class="crossfader-slider__instructions">
+      <span><span class="crossfader-slider__long-instructions">
+        <!-- Press play and use the slider to fade between: -->
+        Sorry! The stream is currently down. Please come back soon...
+        <br><br>
+      </span>Air&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="air">50%</span><br>Water&nbsp;&nbsp;
+      <span class="water">50%</span></span>
     </div>
-  </div>
+    </div>
   </div>
 
   <div class="crossfader-slider crossfader-slider--transparent">
@@ -91,12 +123,13 @@
 
   <div class="content" style="top:100vh;">
       <div class="content__main" style="">
-        <div class="break"></div>
+        <div class="break" id="knepp"></div>
+        <!-- <div class="break"></div> -->
         <span>
-          <span class="bold smaller-text">Knepp</span><br><br>
-           <a href="https://knepp.co.uk/" target="_blank"><u>Knepp</u></a> is a pioneering rewilding project in West Sussex. <br><br>
+          <span class="bold larger-text">Knepp</span><br><br>
+          Knepp is a pioneering rewilding project in West Sussex. <br><br>
  
-          In Feb 2022, a pair of beavers were introduced to a small brook that runs south-north through the estate. Beavers are ecosystem engineers -  they coppice shrubs and trees to build dams. Their dams are already altering the flow of water and turning the small seasonal lag into a complex wetland area. <br><br>
+          In Feb 2022, a pair of beavers were introduced to a small brook that runs south-north through <a target="_blank" href="https://knepp.co.uk/">the estate</a>. Beavers are ecosystem engineers - they coppice shrubs and trees to build dams. Their dams are already altering the flow of water and turning the small seasonal lag into a complex wetland area. <br><br>
 
           How will this changing landscape affect the local fauna? Can we hear these changes? Will the growing wetland create habitat for new species? Might we start to hear the tick of water beetles and the scrape of water boatmen? How might the changing wetland affect the behaviour of birds and mammals in the area?  Might new invertebrates bring new birds? What ecological changes might new birds bring? <br><br>
 
@@ -109,36 +142,122 @@
           wilding radio brings art, science and technology together, to allow us to listen in and become part of long-term, positive ecological change.
 
         </span>
-        <div class="break anchor-section" id="share-your-thoughts"></div>
+        <div class="break"></div>
         <hr>
-        <div class="break" id="feedback"></div>
+        <div class="break anchor-section" id="archive"></div>
+        <span class="bold larger-text">Archive</span>
+        <div class="break"></div>
+
+
+
+        <!-- AUDIO PLAYER START -->
+        <span class="audio-title">Dusk Chorus, Spring 2023</span><br>
+        <div class="archive-player">
+          <audio data-src="assets/audio/Knepp_Dusk_Chorus_Spring_2023.mp3" class="archive-player__audio"></audio>
+          <img class="archive-player__play" src="assets/img/play_filled.svg" onclick="">
+          <input type="range" min="0" max="100" val="50" class="archive-player__progress"></input>
+          <span class="archive-player__time">00:00</span>
+          <span class="archive-player__duration">00:00</span>
+
+          <div class="archive-player__wrap-container">
+            <img class="archive-player__volume-mute" src="assets/img/vol.svg">
+            <div class="archive-player__volume-slider-container">
+              <input type="range" class="archive-player__volume-slider"></input>
+              <div class="archive-player__volume-slider-line"></div>
+            </div>
+            <span class="archive-player__volume-percent">50%</span> 
+          </div>
+        </div>
+        <!-- AUDIO PLAYER END -->
+        
+        <br>
+
+        <!-- AUDIO PLAYER START -->
+        <span class="audio-title">Nightingales, Spring 2023</span><br>
+        <div class="archive-player">
+          <audio data-src="assets/audio/Knepp_TawnyNightingales_spring_2023.mp3" class="archive-player__audio"></audio>
+          <img class="archive-player__play" src="assets/img/play_filled.svg" onclick="">
+          <input type="range" min="0" max="100" val="50" class="archive-player__progress"></input>
+          <span class="archive-player__time">00:00</span>
+          <span class="archive-player__duration">00:00</span>
+
+          <div class="archive-player__wrap-container">
+            <img class="archive-player__volume-mute" src="assets/img/vol.svg">
+            <div class="archive-player__volume-slider-container">
+              <input type="range" class="archive-player__volume-slider"></input>
+              <div class="archive-player__volume-slider-line"></div>
+            </div>
+            <span class="archive-player__volume-percent">50%</span> 
+          </div>
+        </div>
+        <!-- AUDIO PLAYER END -->
+        
+        <br>
+
+        <!-- AUDIO PLAYER START -->
+        <span class="audio-title">Light Rain + Nightingales + Cow, Spring 2023</span><br>
+        <div class="archive-player">
+          <audio data-src="assets/audio/Knepp_LightRainDistantNightingalesCow_spring2023.mp3" class="archive-player__audio"></audio>
+          <img class="archive-player__play" src="assets/img/play_filled.svg" onclick="">
+          <input type="range" min="0" max="100" val="50" class="archive-player__progress"></input>
+          <span class="archive-player__time">00:00</span>
+          <span class="archive-player__duration">00:00</span>
+
+          <div class="archive-player__wrap-container">
+            <img class="archive-player__volume-mute" src="assets/img/vol.svg">
+            <div class="archive-player__volume-slider-container">
+              <input type="range" class="archive-player__volume-slider"></input>
+              <div class="archive-player__volume-slider-line"></div>
+            </div>
+            <span class="archive-player__volume-percent">50%</span> 
+          </div>
+        </div>
+        <!-- AUDIO PLAYER END -->
+        
+        <br>
+
+        <!-- AUDIO PLAYER START -->
+        <span class="audio-title">Cuckoo + Snail, Spring 2023</span><br>
+        <div class="archive-player">
+          <audio data-src="assets/audio/Knep_CuckooSnail_Spring_2023.mp3" class="archive-player__audio"></audio>
+          <img class="archive-player__play" src="assets/img/play_filled.svg" onclick="">
+          <input type="range" min="0" max="100" val="50" class="archive-player__progress"></input>
+          <span class="archive-player__time">00:00</span>
+          <span class="archive-player__duration">00:00</span>
+
+          <div class="archive-player__wrap-container">
+            <img class="archive-player__volume-mute" src="assets/img/vol.svg">
+            <div class="archive-player__volume-slider-container">
+              <input type="range" class="archive-player__volume-slider"></input>
+              <div class="archive-player__volume-slider-line"></div>
+            </div>
+            <span class="archive-player__volume-percent">50%</span> 
+          </div>
+        </div>
+
+        <div class="break"></div>
+        <hr>
+        <div class="break anchor-section" id="share-your-thoughts"></div>
         <form class="feedback">
-          <span class="bold smaller-text">Share your thoughts</span><br><br>
+          <span class="bold larger-text">Share your thoughts</span><br><br>
           <label for="fname">What do you think about the Knepp live stream(s)?</label><br>
           <textarea placeholder="" style="height:200px" type="text" class="feedback__body" ></textarea><br><br>
           <label for="fname">Name (optional)</label><br>
-          <input placeholder="" type="text" class="feedback__name" id="archive"><br><br>
+          <input placeholder="" type="text" class="feedback__name"><br><br>
           <label for="fname">Email (optional)</label><br>
           <input type="text" class="feedback__email"><br>
           <div style="height:45px"></div>
           <a class="feedback__submit" onclick="sendfeedbackemail(this); return false;">Submit</a>
-        </form> 
-        <div class="break"></div>
-        <!-- <hr> -->
-        <div class="break" id="feedback"></div>
-        <!-- <span class="bold smaller-text anchor-section">Archive</span>
-        <div class="break"></div>
-        <audio onplay="isPlaying=true;playPause();" controls><source src="/home/max/Type/html/soundcamp/wilding_dot_radio/knepp1/assets/sound/wawa.mp3" type="audio/mpeg"></audio> -->
+        </form>
         <div class="break"></div>
         <div class="break"></div>
         <div class="break"></div>
+        <img class="footer-sketch" src="assets/img/white.jpg" onload="loadRandomFooter(this);"> 
         <div class="break"></div>
-        <div class="break"></div>
-        <div class="break"></div>
-        <div class="break anchor-section"></div>
       </div>
-
-      <script type="text/javascript">init();</script>
+     <div class="footer anchor-section">
+    </div>
   </div>
+
 </body>
 </html>

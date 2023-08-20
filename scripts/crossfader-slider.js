@@ -1,13 +1,24 @@
-var isPlaying,slider1,playOrPause,slider2,slider3,airPercents,waterPercents,airAudio,waterAudio,uparrow1,downarrow1,uparrow2,downarrow2,isIOS;
+var isPlaying,slider1,slider2,slider3,airPercents,waterPercents,airAudio,waterAudio,uparrow1,downarrow1,uparrow2,downarrow2,isIOS;
 var initialized = false;
+var lastGainSet = 0;
+var iosGainOnTouchStart;
+var lastWaterTime = -1;
+var lastAirTime = -1;
+var isDisabled = true;
+
+// var targetWaterVol = 0;
+// var targetAirVol = 0;
+// var fadeStartTime = -1;
+// var fadeInterval;
+
 
 function playPause() {
-  // if (!initialized) {init();}
-
   isPlaying = !isPlaying;
   if (isPlaying) {
     airAudio.play();
     waterAudio.play();
+    airTimeUpdate();
+    waterTimeUpdate();
     playPause.textContent = 'Pause';
     document.getElementsByClassName("crossfader-slider__playpause")[0].src="assets/img/pause.svg";
     document.getElementsByClassName("crossfader-slider__playpause")[1].src="assets/img/pause_white.svg";
@@ -19,7 +30,11 @@ function playPause() {
   }
 }
 
-function init() {
+$( document ).ready(function() {
+    crossfaderInit();
+});
+
+function crossfaderInit() {
   slider1 = document.getElementsByClassName("crossfader-slider__input")[0];
   slider2 = document.getElementsByClassName("crossfader-slider__input")[1];
   slider3 = document.getElementsByClassName("crossfader-slider__input")[2];
@@ -31,11 +46,10 @@ function init() {
   waterAudio = document.getElementsByClassName("water-audio")[0];
   airPercents = document.getElementsByClassName("air");
   waterPercents = document.getElementsByClassName("water");
-  playOrPause = document.querySelector('playPause');
 
-  // slider1.addEventListener('input', setGain1 );
-  // slider2.addEventListener('input', setGain2 );
   slider3.addEventListener('input', setGain );
+  document.addEventListener('touchstart', onInputTouchStart );
+  document.addEventListener('touchend', onInputTouchEnd );
   
 
   airAudio.volume = 0.3;
@@ -44,34 +58,185 @@ function init() {
   isIOS = iOS(); 
   if (isIOS) {
     console.log("iOS detected");
-    slider1.max = 2; slider1.value = 1;
-    slider2.max = 2; slider2.value = 1;
-    slider3.max = 2; slider3.value = 1;
+    var instructionText = $(".crossfader-slider__long-instructions").first().html().replace("fade","switch");
+    $(".crossfader-slider__long-instructions").html(instructionText);
   }
+
+  airAudio.addEventListener("timeupdate", function(e) {if (isPlaying) {airTimeUpdate();} }, false);
+  waterAudio.addEventListener("timeupdate", function(e) {if (isPlaying) {waterTimeUpdate();} }, false);
+
+
+  $(".air-audio").bind("error", function (e) { airError();});
+  $(".air-audio").bind("progress", function (e) {airTimeUpdate(); enablePlayer(); });
+  $(".water-audio").bind("error", function (e) { waterError(); });
+  $(".air-audio").bind("progress", function (e) {waterTimeUpdate(); enablePlayer(); });
+
+  setInterval(function() {
+    restartStreamIfOffline();
+  }, 1000);
+
+  loadAir();
+  loadWater();
 
   initialized = true;
 }
 
-// function setGain1() {setGain(slider1);}
-// function setGain2() {setGain(slider2);}
+function airError() {
+  lastAirTime = -1;
+  disablePlayer();
+
+  if (isDisabled) {
+    setTimeout( function() { airAudio.load(); }, 2000);
+  }
+}
+function waterError() {
+  lastWaterTime = -1;
+  disablePlayer();
+  
+  if (isDisabled) {
+    setTimeout( function() { waterAudio.load(); }, 2000);
+  }
+}
+function waterTimeUpdate() {
+  lastWaterTime = Date.now();
+}
+function airTimeUpdate() {
+  lastAirTime = Date.now();
+}
+
+function restartStreamIfOffline() {
+  if (isPlaying) {
+    var timenow = Date.now();
+    if (timenow - lastAirTime > 2000) {
+      loadAir();
+      airAudio.play();
+    }
+    if (timenow - lastWaterTime > 2000) {
+      loadWater();
+      waterAudio.play();
+    }
+  }
+}
+
+function enablePlayer() {
+  if (!isPlaying && lastAirTime != -1 && lastWaterTime != -1 && isDisabled) {
+    $(".crossfader-slider__playpause").css("opacity","1");
+    $(".crossfader-slider__player").css("pointer-events","all");
+    $(".crossfader-slider__error-text").css("visibility","hidden");
+    isDisabled = false;
+  }
+}
+
+function disablePlayer() {
+  $(".crossfader-slider__playpause").css("opacity","0.7");
+  $(".crossfader-slider__player").css("pointer-events","none");
+  $(".crossfader-slider__error-text").css("visibility","visible");
+  isDisabled = true;
+  isPlaying = true;
+  playPause();
+}
+
+function loadAir() {
+  console.log("Loaded air");
+  airAudio.src = airAudio.src.split("?")[0] + "?timestamp=" + Date.now();
+  airAudio.load();
+}
+
+
+function loadWater() {
+  console.log("Loaded water");
+  waterAudio.src = waterAudio.src.split("?")[0] + "?timestamp=" + Date.now();
+  waterAudio.load();
+}
+
+function onInputTouchStart() {
+  iosGainOnTouchStart = slider3.value;
+}
+function onInputTouchEnd() {
+  setTimeout(function() {slider3.value = slider1.value; }, 100); // cannot set value directly after mouseup
+}
+
+
+
+// function fadeStep() {
+//   var currentWaterVol = waterAudio.volume;
+//   var step = 0.0001;
+
+//   if (targetWaterVol>currentWaterVol+step && currentWaterVol+step < 1) {
+//     waterAudio.volume = currentWaterVol+step;
+//   }
+//   else if (targetWaterVol<currentWaterVol-step && currentWaterVol-step > 0) {
+//     waterAudio.volume = currentWaterVol-step;
+//   }
+
+//   // console.log(currentWaterVol);
+
+//   airAudio.volume = 0;
+
+//   if (Date.now() - fadeStartTime > 500) {
+//     fadeStartTime = -1;
+//     console.log("Stopped Fading At: "+currentWaterVol);
+//     clearInterval(fadeInterval);
+//   }
+// }
+// function startFading() {
+//   if (fadeStartTime == -1) {
+//     console.log("Started Fading");
+//     fadeInterval = setInterval(function() {
+//       fadeStep();
+//     }, 10);
+//   }
+//   fadeStartTime = Date.now();
+// }
 
 function setGain() {
-  if (!isIOS) {
+  // startFading(); // start the fader if not already started
+
+  if (isIOS) {
+    var dif = iosGainOnTouchStart-Number(slider3.value);
+
+    if (Math.abs(dif) > 15) {
+      if (Math.abs(dif) > 30) {
+        dif = (dif/Math.abs(dif) ) * slider3.max;
+      }
+      else {
+        dif = (dif/Math.abs(dif) ) * slider3.max/2;
+      }
+
+      gainSet = iosGainOnTouchStart - dif;
+      if (gainSet < slider3.min) {gainSet = slider3.min;}
+      if (gainSet > slider3.max) {gainSet = slider3.max;}
+    }
+    else {
+      gainSet = iosGainOnTouchStart
+    }
+    slider1.value = gainSet;
+    slider2.value = gainSet;
+  }
+
+  else {
     uparrow1.style.display = "none";
     downarrow1.style.display = "none";
     uparrow2.style.display = "none";
     downarrow2.style.display = "none";
+
+    gainSet = slider3.value;
   }
+  slider1.value = gainSet;
+  slider2.value = gainSet;
+
+  var waterVol = gainSet/slider3.max;
+  var airVol = 0.7 * (slider3.max - gainSet)/slider3.max;
   
-  const gainSet = Number(slider3.value);
-  var waterVol = gainSet/slider1.max;
-  var airVol = 0.7 * (slider1.max - gainSet)/slider1.max;
-  
+  if (!isFinite(waterVol) ) {waterVol = 0;}
+  if (!isFinite(airVol) ) {airVol = 0;}
+
   if (waterVol == 0) {
     waterAudio.muted = true;
   }
   else {
     waterAudio.volume = waterVol;
+    // targetWaterVol = waterVol;
     waterAudio.muted = false;
   }
 
@@ -80,11 +245,10 @@ function setGain() {
   }
   else {
     airAudio.volume = airVol;
+    // targetAirVol = airVol;
     airAudio.muted = false;
   }
 
-  slider1.value = slider3.value;
-  slider2.value = slider3.value;
   waterPercents[0].innerHTML = Math.round(100*gainSet/slider1.max)+"%";
   waterPercents[1].innerHTML = Math.round(100*gainSet/slider1.max)+"%";
   airPercents[0].innerHTML = (100-Math.round(100*gainSet/slider1.max))+"%";
@@ -94,6 +258,8 @@ function setGain() {
   // waterPercents[1].innerHTML = Math.round( (gainSet/50.0)/0.02)+"%";
   // airPercents[0].innerHTML = Math.round( ( (slider1.max-gainSet)/50.0)/0.02)+"%";
   // airPercents[1].innerHTML = Math.round(  ( (slider1.max-gainSet)/50.0)/0.02)+"%";
+
+  lastGainSet = gainSet;
 }
 
 function iOS() {
