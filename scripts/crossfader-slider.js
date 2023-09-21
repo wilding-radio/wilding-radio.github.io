@@ -123,6 +123,8 @@ function enablePlayer() {
     $(".crossfader-slider__playpause").css("opacity","1");
     $(".crossfader-slider__player").css("pointer-events","all");
     $(".crossfader-slider__error-text").css("visibility","hidden");
+    $(".crossfader-slider__instructions").css("visibility","visible");
+    $(".crossfader-slider__error-instructions").css("visibility","hidden");
     isDisabled = false;
   }
 }
@@ -131,6 +133,8 @@ function disablePlayer() {
   $(".crossfader-slider__playpause").css("opacity","0.7");
   $(".crossfader-slider__player").css("pointer-events","none");
   $(".crossfader-slider__error-text").css("visibility","visible");
+  $(".crossfader-slider__instructions").css("visibility","hidden");
+  $(".crossfader-slider__error-instructions").css("visibility","visible");
   isDisabled = true;
   isPlaying = true;
   playPause();
