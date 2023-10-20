@@ -12,21 +12,31 @@ var isDisabled = true;
 // var fadeInterval;
 
 
+function cs_play() {
+  airAudio.play();
+  waterAudio.play();
+  airTimeUpdate();
+  waterTimeUpdate();
+  playPause.textContent = 'Pause';
+  document.getElementsByClassName("crossfader-slider__playpause")[0].src="assets/img/pause.svg";
+  document.getElementsByClassName("crossfader-slider__playpause")[1].src="assets/img/pause_white.svg";
+  isPlaying = true;
+}
+
+function cs_pause() {
+  airAudio.pause();
+  waterAudio.pause();
+  document.getElementsByClassName("crossfader-slider__playpause")[0].src="assets/img/play.svg";
+  document.getElementsByClassName("crossfader-slider__playpause")[1].src="assets/img/play_white.svg";
+  isPlaying = false;
+}
+
 function playPause() {
   isPlaying = !isPlaying;
   if (isPlaying) {
-    airAudio.play();
-    waterAudio.play();
-    airTimeUpdate();
-    waterTimeUpdate();
-    playPause.textContent = 'Pause';
-    document.getElementsByClassName("crossfader-slider__playpause")[0].src="assets/img/pause.svg";
-    document.getElementsByClassName("crossfader-slider__playpause")[1].src="assets/img/pause_white.svg";
+    cs_play();
   } else {
-    airAudio.pause();
-    waterAudio.pause();
-    document.getElementsByClassName("crossfader-slider__playpause")[0].src="assets/img/play.svg";
-    document.getElementsByClassName("crossfader-slider__playpause")[1].src="assets/img/play_white.svg";
+    cs_pause();
   }
 }
 
@@ -123,6 +133,8 @@ function enablePlayer() {
     $(".crossfader-slider__playpause").css("opacity","1");
     $(".crossfader-slider__player").css("pointer-events","all");
     $(".crossfader-slider__error-text").css("visibility","hidden");
+    $(".crossfader-slider__instructions").css("visibility","visible");
+    $(".crossfader-slider__error-instructions").css("visibility","hidden");
     isDisabled = false;
   }
 }
@@ -131,6 +143,8 @@ function disablePlayer() {
   $(".crossfader-slider__playpause").css("opacity","0.7");
   $(".crossfader-slider__player").css("pointer-events","none");
   $(".crossfader-slider__error-text").css("visibility","visible");
+  $(".crossfader-slider__instructions").css("visibility","hidden");
+  $(".crossfader-slider__error-instructions").css("visibility","visible");
   isDisabled = true;
   isPlaying = true;
   playPause();

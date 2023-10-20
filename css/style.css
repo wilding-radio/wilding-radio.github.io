@@ -291,6 +291,12 @@ textarea {
   left:98px;
   color:black;
 }
+
+.crossfader-slider__error-instructions {
+  visibility: hidden;
+}
+
+
 .crossfader-slider__long-instructions {
   display: block;
   width:200px;
@@ -417,6 +423,9 @@ textarea {
 }
 
 .crossfader-slider--white .crossfader-slider__error-text {
+  color:white;
+}
+.crossfader-slider--white a {
   color:white;
 }
 

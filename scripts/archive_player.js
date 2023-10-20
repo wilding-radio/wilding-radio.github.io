@@ -87,11 +87,14 @@ function ap_play(index) {
   ap_audios[index].play();
   ap_playButtons[index].src = "assets/img/pause_filled.svg";
 
+  cs_pause(); //pause crossfader slider
+
   for (var i=0;i<ap_players.length;i++) {
     if (i != index && ap_playing[i]) {
       ap_pause(i);
     }
   }
+
   ap_playing[index] = true;
 }
 
