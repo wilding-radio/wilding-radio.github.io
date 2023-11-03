@@ -92,19 +92,22 @@
 /*		top:10vh;*/
 		top: 75px;
 	}
+	.crossfader-slider--transparent .crossfader-slider__input {
+	    transform-origin: 23px 19px !important;
+	}
 	.crossfader-slider__input {
 		/* transform origin changes due to different font size */
 /*		transform-origin: 19px 7px;*/
 		transform-origin: 13px 0px;
-		width: 40vh;
+		width: 40vh !important;
 	}
 
 	.crossfader-slider__input::-webkit-slider-thumb {
-	  height: 30px;
+	  height: 30px !important;
 	}
 
 	.crossfader-slider__input::-moz-range-thumb {
-	  height: 30px;
+	  height: 30px !important;
 	}
 	.crossfader-slider__instructions {
 		top: calc(44vh + 7px);

@@ -69,7 +69,7 @@ function crossfaderInit() {
   if (isIOS) {
     console.log("iOS detected");
     var instructionText = $(".crossfader-slider__long-instructions").first().html().replace("fade","switch");
-    $(".crossfader-slider__long-instructions").html(instructionText);
+    $(".crossfader-slider__long-instructions").first().html(instructionText);
   }
 
   airAudio.addEventListener("timeupdate", function(e) {if (isPlaying) {airTimeUpdate();} }, false);
