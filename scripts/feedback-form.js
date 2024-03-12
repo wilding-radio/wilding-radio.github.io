@@ -2,9 +2,6 @@ var feedbackForm;
 var feedbackBody;
 var feedbackName;
 var feedbackEmail;
-var researchName;
-var researchEmail;
-
 
 function confirmSent(submitElement) {
 	submitElement.classList.remove("feedback__submit");
@@ -17,10 +14,8 @@ function sendfeedbackemail(submitElement) {
 	feedbackBody = document.getElementsByClassName("feedback__body")[0].value;
 	feedbackName = document.getElementsByClassName("feedback__name")[0].value;
 	feedbackEmail = document.getElementsByClassName("feedback__email")[0].value;
-	researchName = document.getElementsByClassName("research__name")[0].value;
-	researchEmail = document.getElementsByClassName("research__email")[0].value;
 
-	var thebody = feedbackName + "<br><br>"+feedbackEmail+"<br><br>"+ researchName + "<br><br>"+ researchEmail + "<br><br>"+feedbackBody.replace(/(?:\r\n|\r|\n)/g, '<br>')
+	var thebody = feedbackName + "<br><br>"+feedbackEmail+"<br><br>"+feedbackBody.replace(/(?:\r\n|\r|\n)/g, '<br>')
 
 	Email.send({
 	    SecureToken : "b13b383d-38d6-44ad-9e7b-3618a9874657",
