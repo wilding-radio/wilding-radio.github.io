@@ -28,4 +28,3 @@ function sendfeedbackemail(submitElement) {
 	);
 }
 
-// feedbackform.addEventListener('submit', sendfeedbackemail);
