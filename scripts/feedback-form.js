@@ -22,7 +22,7 @@ function sendfeedbackemail(submitElement) {
 	var thebody = "Name and email:<br><br>"+ feedbackName + "<br><br>"+feedbackEmail+"<br><br> Name and email for future research:<br><br>"+feedbackNameFutureResearch + "<br><br>"+feedbackEmailFutureResearch+"<br><br> Body text:<br><br>"+feedbackBody.replace(/(?:\r\n|\r|\n)/g, '<br>')
 
 	Email.send({
-	    SecureToken : "b13b383d-38d6-44ad-9e7b-3618a9874657",
+	    SecureToken : "f260eca6-78c5-4140-ba13-32123ed150b0",
 	    To : 'wilding.radio@gmail.com',
 	    From : "wilding.radio.feedback@soundtent.org",
 	    Subject : "New wilding.radio feedback",
