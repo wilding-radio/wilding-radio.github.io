@@ -19,7 +19,7 @@ function sendfeedbackemail(submitElement) {
 	feedbackNameFutureResearch = document.getElementsByClassName("feedback__name_future_research")[0].value;
 	feedbackEmailFutureResearch = document.getElementsByClassName("feedback__email_future_research")[0].value;
 
-	var thebody = "Name and email:<br><br>"+ feedbackName + "<br><br>"+feedbackEmail+"<br><br> Name and email for future research:<br><br>"+feedbackNameFutureResearch + "<br><br>"+feedbackEmailFutureResearch+"<br><br> Body text:<br><br>"+feedbackBody.replace(/(?:\r\n|\r|\n)/g, '<br>')
+	var thebody = "Name and email:<br>"+ feedbackName + "<br>"+feedbackEmail+"<br><br> Name and email for future research:<br>"+feedbackNameFutureResearch + "<br>"+feedbackEmailFutureResearch+"<br><br> Body text:<br><br>"+feedbackBody.replace(/(?:\r\n|\r|\n)/g, '<br>')
 
 	Email.send({
 	    SecureToken : "c7091985-1af0-4589-a4ae-3cd5dc269f64",
