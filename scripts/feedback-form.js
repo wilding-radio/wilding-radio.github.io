@@ -23,7 +23,7 @@ function sendfeedbackemail(submitElement) {
 
 	Email.send({
 	    SecureToken : "c7091985-1af0-4589-a4ae-3cd5dc269f64",
-	    To : 'wilding.radio@gmail.com',
+	    To : 'wildingradio@gmail.com',
 	    From : "wilding.radio.feedback@soundtent.org",
 	    Subject : "New wilding.radio feedback",
 	    Body : thebody
