@@ -20,6 +20,12 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+
+  <!-- No caching -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta property="og:title" content="wilding.radio" />
   <meta property="og:type" content="website" />
@@ -54,9 +60,10 @@
   <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PBSL2YQNP"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-5PBSL2YQNP'); </script>
 </head>
 <body>
-
   <audio class="air-audio" data-src="https://locus.creacast.com:9443/knepp_air.mp3" crossorigin="anonymous"></audio>
   <audio class="water-audio" data-src="https://locus.creacast.com:9443/knepp_water.mp3" crossorigin="anonymous"></audio>
+  <audio class="air-audio-fallback" data-src="https://users.sussex.ac.uk/~alicee/audio/wildingRadio/mp3s/knepp-16-23-04-2023SpringRain.mp3"></audio>
+  <audio class="water-audio-fallback" data-src="https://users.sussex.ac.uk/~alicee/audio/wildingRadio/mp3s/knepp-22-10-07-2023WaterBoatmen.mp3"></audio>
   <div class="header">
     <div><a class="no-underline" href="about.html">wilding.radio</a></div>
     <!-- <div><a class="" href="index.html">Knepp</a></div>
@@ -89,12 +96,11 @@
     <div class="crossfader-slider__instructions crossfader-slider__error-instructions">
       <span>
         <span class="crossfader-slider__long-instructions">
-          While we fix the problem, feel free to enjoy the <a href="#archive">archive</a>.
+          Click play to listen to a recent recording of the stream. Alternatively, enjoy the <a href="#archive">archive</a>.
         </span>
       </span>
     </div>
   </div>
-
   <div class="fullscreen-banner anchor-section">
     <img class="fullscreen-banner__image" src="assets/img/white.jpg" onload="loadBanner(this);">
     
@@ -124,7 +130,7 @@
       <div class="crossfader-slider__instructions crossfader-slider__error-instructions">
         <span>
           <span class="crossfader-slider__long-instructions">
-            While we fix the problem, feel free to enjoy the <a href="#archive">archive</a>.
+            Click play to listen to a recent recording of the stream. Alternatively, enjoy the <a href="#archive">archive</a>.
           </span>
         </span>
       </div>
