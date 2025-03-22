@@ -5,7 +5,6 @@ var iosGainOnTouchStart;
 var lastWaterTime = -1;
 var lastAirTime = -1;
 var isDisabled = true;
-var airVolMultiplier = 0.7 
 
 // var targetWaterVol = 0;
 // var targetAirVol = 0;
@@ -14,14 +13,8 @@ var airVolMultiplier = 0.7
 
 
 function cs_play() {
-  if (isDisabled) {
-    waterAudioFallback.play();
-    airAudioFallback.play();
-  }
-  else {
-    airAudio.play();
-    waterAudio.play();
-  }
+  airAudio.play();
+  waterAudio.play();
   airTimeUpdate();
   waterTimeUpdate();
   playPause.textContent = 'Pause';
@@ -31,8 +24,6 @@ function cs_play() {
 }
 
 function cs_pause() {
-  waterAudioFallback.pause();
-  airAudioFallback.pause();
   airAudio.pause();
   waterAudio.pause();
   document.getElementsByClassName("crossfader-slider__playpause")[0].src="assets/img/play.svg";
@@ -63,19 +54,16 @@ function crossfaderInit() {
   downarrow2 = document.getElementsByClassName("crossfader-slider__downarrow")[1];
   airAudio = document.getElementsByClassName("air-audio")[0];
   waterAudio = document.getElementsByClassName("water-audio")[0];
-  airAudioFallback = document.getElementsByClassName("air-audio-fallback")[0];
-  waterAudioFallback = document.getElementsByClassName("water-audio-fallback")[0];
   airPercents = document.getElementsByClassName("air");
   waterPercents = document.getElementsByClassName("water");
 
   slider3.addEventListener('input', setGain );
   document.addEventListener('touchstart', onInputTouchStart );
   document.addEventListener('touchend', onInputTouchEnd );
+  
 
-  airAudio.volume = 1-airVolMultiplier;
-  airAudioFallback.volume = 1-airVolMultiplier;
+  airAudio.volume = 0.3;
   waterAudio.volume = 0.5;
-  waterAudioFallback.volume = 0.5;
 
   isIOS = iOS(); 
   if (isIOS) {
@@ -107,15 +95,17 @@ function airError() {
   lastAirTime = -1;
   disablePlayer();
 
-  // start load/error loop to check if stream has returned
-  // setTimeout( function() { airAudio.load(); }, 2000);
+  if (isDisabled) {
+    setTimeout( function() { airAudio.load(); }, 2000);
+  }
 }
 function waterError() {
   lastWaterTime = -1;
   disablePlayer();
   
-  // start load/error loop to check if stream has returned
-  // setTimeout( function() { waterAudio.load(); }, 2000);
+  if (isDisabled) {
+    setTimeout( function() { waterAudio.load(); }, 2000);
+  }
 }
 function waterTimeUpdate() {
   lastWaterTime = Date.now();
@@ -125,7 +115,7 @@ function airTimeUpdate() {
 }
 
 function restartStreamIfOffline() {
-  if (isPlaying && !isDisabled) {
+  if (isPlaying) {
     var timenow = Date.now();
     if (timenow - lastAirTime > 2000) {
       loadAir();
@@ -150,8 +140,8 @@ function enablePlayer() {
 }
 
 function disablePlayer() {
-  $(".crossfader-slider__playpause").css("opacity","1"); //0.7
-  $(".crossfader-slider__player").css("pointer-events","all"); //none
+  $(".crossfader-slider__playpause").css("opacity","0.7");
+  $(".crossfader-slider__player").css("pointer-events","none");
   $(".crossfader-slider__error-text").css("visibility","visible");
   $(".crossfader-slider__instructions").css("visibility","hidden");
   $(".crossfader-slider__error-instructions").css("visibility","visible");
@@ -250,31 +240,27 @@ function setGain() {
   slider2.value = gainSet;
 
   var waterVol = gainSet/slider3.max;
-  var airVol = airVolMultiplier * (slider3.max - gainSet)/slider3.max;
+  var airVol = 0.7 * (slider3.max - gainSet)/slider3.max;
   
   if (!isFinite(waterVol) ) {waterVol = 0;}
   if (!isFinite(airVol) ) {airVol = 0;}
 
   if (waterVol == 0) {
     waterAudio.muted = true;
-    waterAudioFallback.muted = true;
   }
   else {
     waterAudio.volume = waterVol;
-    waterAudioFallback.volume = waterVol;
+    // targetWaterVol = waterVol;
     waterAudio.muted = false;
-    waterAudioFallback.muted = false;
   }
 
   if (airVol == 0) {
     airAudio.muted = true;
-    airAudioFallback.muted = true;
   }
   else {
     airAudio.volume = airVol;
-    airAudioFallback.volume = airVol;
+    // targetAirVol = airVol;
     airAudio.muted = false;
-    airAudioFallback.muted = false;
   }
 
   waterPercents[0].innerHTML = Math.round(100*gainSet/slider1.max)+"%";
