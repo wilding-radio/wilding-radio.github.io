@@ -1,20 +1,30 @@
 var anchorPositions = [];
 var anchors = [];
 var lastPosition = 0;
+var anchorFadePointHeightMultiplier = 1.5;
 
-$( document ).ready(function() {
+function setAnchorPositions() {
+    anchorPositions = [];
     $('.anchor-section').each(function() {
         anchorPositions.push( $(this).offset().top );
     });
+}
+
+$( document ).ready(function() {
+    setAnchorPositions();
     anchors = document.getElementsByClassName("anchorbar__anchor");
 });
+
+$(window).resize(function() {
+    setAnchorPositions();
+})
 
 $(window).scroll(function () { //on scroll event on window
     var position = $(this).scrollTop(); //position scrolled sofar
     var height = window.innerHeight;
     position += (height/2);
 
-    var anchorFadePoint = height*1.5;
+    var anchorFadePoint = height*anchorFadePointHeightMultiplier;
 
     if (lastPosition != -1) {
         if (lastPosition < anchorFadePoint && position >= anchorFadePoint ) {

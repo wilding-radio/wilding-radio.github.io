@@ -55,19 +55,36 @@
 		display: inline-block;
 	}
 
-	/* knepp link as badge */
-	#listen-to-knepp {
+	/* badges */
+	#badges {
 		position: fixed;
-		top: 253px;
-		width: 55px;
-		height: 55px;
-		padding: 20px;
-		left: 7px;
+		top: 80px;
+		left: 2.5vw;
 	}
 
-	#listen-to-knepp  * {
-		font-size: 17px;
-		line-height: 19px;
+	.badge  * {
+		font-size: 17px !important;
+		line-height: 19px !important;
+	}
+
+	#listen-to-knepp {
+		width: 55px !important;
+		height: 55px !important;
+		padding: 20px !important;
+	}
+	#resources {
+		width: 96px !important;
+		height: 48px !important;
+	}
+	#resources span {
+		position: absolute;
+		top:53px;
+		left: 12px;
+	}
+
+	.about-logo,
+	.about-logo-placeholder {
+		display: none;
 	}
 
 
@@ -77,6 +94,7 @@
 	  width: auto;
 	  margin-right: 5vw;
 	  padding-top:2.5vw;
+	  max-width: none;
 	}
 	audio {
 		width:100%;
@@ -184,9 +202,19 @@
 
 @media screen and (max-width: 1220px) and (orientation: landscape) {
 	/* knepp link as badge */
-	#listen-to-knepp {
+	/* #listen-to-knepp {
 		left: 53px;
 		top: 470px;
+	} */
+	
+	/* badges */
+	#badges {
+		left: 51px;
+		top: 120px;
+	}
+	.about-logo,
+	.about-logo-placeholder {
+		display: none;
 	}
 }
 
@@ -218,6 +246,7 @@
 	  width: auto;
 	  margin-right: 5vw;
 	  padding-top:3.5vh;
+	  max-width: none;
 	}
 
 	.desktop-only {
@@ -237,19 +266,38 @@
 		width: auto;
 	}
 
-	/* knepp link as badge */
+	/* badges */
+	#badges {
+		position: fixed;
+		top: 80px;
+		left: 96px;
+	}
+
+	.badge  * {
+		font-size: 17px !important;
+		line-height: 19px !important;
+	}
+
 	#listen-to-knepp {
+		width: 55px !important;
+		height: 55px !important;
+		padding: 20px !important;
+	}
+	#resources {
+		width: 96px !important;
+		height: 48px !important;
+	}
+	#resources span {
 		position: absolute;
-		left: 90px;
-		top: calc(97.5vh - 111px);
-		width: 50px;
-		height: 81px;
-		padding: 16px 29px;
+		top:53px;
+		left: 12px;
 	}
-	#listen-to-knepp  * {
-		font-size: 19px;
-		line-height:25px;
+
+	.about-logo,
+	.about-logo-placeholder {
+		display: none;
 	}
+
 	.content__main > span:first-of-type > span:first-of-type { /* crop the heading so it doesn't overlap the badge */
 		display: inline-block;
 		width: 75%;

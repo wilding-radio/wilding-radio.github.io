@@ -26,15 +26,15 @@
   <meta property="og:url" content="https://wilding.radio/about.html" />
   <meta property="og:description" content="Tune in to the sounds of nature recovery" />
   
-  <meta property="og:image" content="http://wilding.radio/assets/img/knepp.jpg" />
-  <meta property="og:image:secure_url" content="https://wilding.radio/assets/img/knepp.jpg" /> 
+  <meta property="og:image" content="http://wilding.radio/assets/img/knepp/day.jpg" />
+  <meta property="og:image:secure_url" content="https://wilding.radio/assets/img/knepp/day.jpg" /> 
   <meta property="og:image:type" content="image/jpeg" /> 
-  <meta property="og:image:width" content="1756" /> 
-  <meta property="og:image:height" content="1307" />
+  <meta property="og:image:width" content="2000" /> 
+  <meta property="og:image:height" content="1500" />
   
   <meta name="twitter:title" content="wilding.radio">
   <meta name="twitter:description" content="Tune in to the sounds of nature recovery">
-  <meta name="twitter:image" content=" http://wilding.radio/assets/img/knepp.jpg">
+  <meta name="twitter:image" content=" http://wilding.radio/assets/img/knepp/day.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
   
@@ -44,7 +44,7 @@
   <script type="text/javascript" src="scripts/jquery.min.js"></script>
   <script type="text/javascript" src="scripts/iosRemoveVideoAutoplay.js"></script>
   <script type="text/javascript" src="scripts/random-footer.js"></script>
-  <script type="text/javascript" src="scripts/listen-to-knepp-hover.js"></script>
+  <script type="text/javascript" src="scripts/badge-hover.js"></script>
 
   <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PBSL2YQNP"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-5PBSL2YQNP'); </script>
 </head>
@@ -56,14 +56,20 @@
   <div class="header">
     <div><a class="no-underline" href="about.html">wilding.radio</a></div>
     
-    <a href="index.html">
-      <div id="listen-to-knepp" style="display: inline-block;">
-        <span class="no-underline" href="index.html">
-        Listen to Knepp
-        </span>
-        <img class="listen-to-knepp__circle-wave" src="assets/img/circle_wave.png">
-      </div>
-    </a>
+    <div id="badges">
+      <a href="index.html">
+        <div id="listen-to-knepp" class="badge" style="display: inline-block;">
+          <span class="no-underline" href="index.html">Listen to Knepp</span>
+          <img class="listen-to-knepp__circle-wave" src="assets/img/circle_wave.png">
+        </div>
+      </a>
+      <a href="resources.html">
+        <div id="resources" class="badge" style="display: inline-block;">
+          <span class="no-underline" href="index.html">Resources</span>
+          <img class="resources__box" src="assets/img/streambox_small.png">
+        </div>
+      </a>
+    </div>
   </div>
 
 
@@ -105,7 +111,7 @@ We invite you to listen in and become part of long-term, positive ecological cha
         <div class="break"></div>
         <div class="break"></div>
         <img class="shl-logo" src="assets/img/SHLlogo.png">
-        <img class="esrc-logo" src="assets/img/ESRClogo.png">
+        <img class="esrc-logo" src="assets/img/ESRCl_UKR_logos_combined.png">
         <div class="break"></div>
         <div class="break"></div>
         <img class="footer-sketch" src="assets/img/white.jpg" onload="loadRandomFooter(this);"> 

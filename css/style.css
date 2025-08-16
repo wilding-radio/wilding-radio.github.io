@@ -54,8 +54,12 @@ a {
   display: none;
 }
 
-input {
+input { 
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.full-width-image {
+  width: 100%;
 }
 
 /*
@@ -100,26 +104,25 @@ hr {
   padding-right:50px
 }
 .esrc-logo {
-  height: 100px;
+  height: 160px;
   vertical-align: top;
 }
 
-
-
-/* knepp link as header */
-/*#listen-to-knepp {
-  position: absolute;
-  left: clamp(930px, 75vw, 75vw);
-}*/
-
-/* knepp link as badge */
-#listen-to-knepp {
-  z-index: 1;
-  cursor: pointer;
+#badges {
   position:fixed;
-/*  left: clamp(930px, 67vw, 67vw);*/
   left: calc( 440px + 44vw);
   top: 3vh;
+  display: flex;
+  flex-direction: column;
+}
+#badges a {
+  border:none;
+}
+
+#listen-to-knepp {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
   text-align: center;
   border-radius: 50%;
   line-height: 0px;
@@ -139,6 +142,36 @@ hr {
 #listen-to-knepp * {
   color:inherit;
   line-height: 27px;
+}
+
+
+#resources {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  text-align: center;
+  line-height: 0px;
+  padding: 0px;
+  width: 235px;
+  height: 117.5px;
+  margin-top: 40px;
+}
+.resources__box {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+
+#resources * {
+  color:inherit;
+  line-height: 27px;
+}
+#resources span {
+  position: absolute;
+  top:84px;
+  left: 65px;
 }
 
 
@@ -236,6 +269,7 @@ hr {
 .content__main {
   margin-left:440px;
   width:40%;
+  max-width: calc(100% - 440px);
 }
 
 /*
@@ -474,3 +508,18 @@ textarea {
 .footer__img {
   width:100%;
 }*/
+
+/*
+######################## no-overflow-list ########################
+*/
+.no-overflow-list {
+  display: flex;
+}
+
+.no-overflow-list__item {
+  width: 50px;
+  flex-shrink:0;
+}
+.no-overflow-list__content {
+
+}

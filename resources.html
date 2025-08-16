@@ -1,0 +1,283 @@
+<!--
+/**
+* @license
+* MyFonts Webfont Build ID 107900
+*
+* The fonts listed in this notice are subject to the End User License
+* Agreement(s) entered into by the website owner. All other parties are
+* explicitly restricted from using the Licensed Webfonts(s).
+*
+* You may obtain a valid license from one of MyFonts official sites.
+* http://www.fonts.com
+* http://www.myfonts.com
+* http://www.linotype.com
+*
+*/
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta property="og:title" content="wilding.radio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wilding.radio" />
+  <meta property="og:description" content="Tune in to the sounds of nature recovery" />
+  
+  <meta property="og:image" content="https://wilding.radio/assets/img/knepp/day.jpg" />
+  <meta property="og:image:secure_url" content="https://wilding.radio/assets/img/knepp/day.jpg" /> 
+  <meta property="og:image:type" content="image/jpeg" /> 
+  <meta property="og:image:width" content="2000" /> 
+  <meta property="og:image:height" content="1500" />
+  
+  <meta name="twitter:title" content="wilding.radio">
+  <meta name="twitter:description" content="Tune in to the sounds of nature recovery">
+  <meta name="twitter:image" content=" https://wilding.radio/assets/img/dawn.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <title>wilding.radio</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=25">
+  <link rel="stylesheet" type="text/css" href="css/mobile.css?v=25">
+  <script type="text/javascript" src="scripts/jquery.min.js"></script>
+  <script type="text/javascript" src="scripts/anchorbar.js"></script>
+  <script type="text/javascript"> anchorFadePointHeightMultiplier = 0; </script>
+  <script type="text/javascript" src="scripts/random-footer.js"></script>
+  <script type="text/javascript" src="scripts/lazyload.js"></script>
+  
+  <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PBSL2YQNP"></script><script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-5PBSL2YQNP'); </script>
+</head>
+<body>
+  <div class="header">
+    <div><a class="no-underline" href="about.html">wilding.radio</a></div>
+    <!-- <div><a class="" href="index.html">Knepp</a></div>
+    <div><a class="no-underline" href="about.html">About</a></div> -->
+  </div>
+
+  <div class="anchorbar">
+    <a class="anchorbar__anchor" href="#overview">Overview</a><br>
+    <a class="anchorbar__anchor no-underline" href="#live-audio-streaming">Live Audio Streaming</a><br>
+    <a class="anchorbar__anchor no-underline" href="#streambox">Streambox</a><br>
+    <a class="anchorbar__anchor no-underline" href="#technical-specifications">Technical Specifications</a><br>
+    <a class="anchorbar__anchor no-underline" href="#multispecies-considerations">Multispecies Considerations</a><br>
+    <a class="anchorbar__anchor no-underline" href="#credits">Credits</a><br>
+  </div>
+
+  <div class="content">
+      <div class="content__main" style="">
+        <div class="break"></div>
+        <!-- <div class="break"></div> -->
+        <span>
+          <div class="anchor-section" id="overview"></div>
+          <span class="bold larger-text">Resources</span>
+          <div class="break"></div>
+          <img class= "full-width-image" src="assets/img/streambox.png" style="padding: 3vw; box-sizing: border-box;">
+          <div class="break"></div>
+          <span class="bold">Overview</span><br><br>
+          The first wilding radio stream at Knepp Wilding was created with the aim of broadcasting the evolving sounds of the site with an on-line listenership.  In particular, we were interested in how the planned introduction of beavers at Knepp (the first such introduction in Southern England) would change the wet and dry ecosystems and their sounds.
+          <br><br>
+          Wilding Radio consists of in situ hardware that sends audio to a remote server and a website where listeners can tune in. The audio is also recorded to create an extended data set of long-term environmental change, as evidenced by the soundworlds of air and water. The design has evolved iteratively over 5 years, in response to weather, flora, fauna and safety considerations. We document that process here, and share a toolkit for others working with live audio streaming, or anybody doing a similar project.
+          <br><br>
+          Usage. We share this because we recognise the value of long term listening to ecological change and are keen for others to share the joy. We share this under creative commons license and ask you to drop us a line if you create your own stream.
+          <br><br>
+          The installation consists of a stereo feed from microphones on a willow tree above the Laghouse Brook, and a second stereo feed from hydrophones in the water below. A webpage with a slider allows listeners to mix between the streams, which are recorded to create an extended data set of long-term environmental change, as evidenced by the soundworlds of air and water.
+          <br><br>
+          This description may be of interest to others working with ecoacoustics, especially live audio streaming, and relevant for anybody doing a similar project.
+          <div class="break anchor-section" id="live-audio-streaming"></div>
+          <span class="bold">Live Audio Streaming</span>
+          <br><br>
+          The Knepp installation relies on approaches developed by Locus Sonus in Aix-Marseille and in the frame of Acoustic Commons (2020-22), a Creative Europe cooperation project [<a target="_blank" href="https://acousticommons.net">acousticommons.net</a>]. It is a collaboration between the artist cooperative Soundcamp and Alice Eldridge at the Digital Humanities Lab of Sussex University. It is hosted at the Knepp Estate, a wilding project near Horsham, Surrey.
+          <br><br>
+          The installation consists of a field transmitter ('streambox'), which receives sounds, digitizes them, and sends them via the internet to an icecast server, where they are available on a public web page for listening. This process happens live, with some seconds of delay from buffering and transmission through the network. The equipment at Knepp runs on a battery charged by solar collectors. The streambox is connected to the power bank with an ethernet cable that carries data and power, allowing the microphones to be near the water, where it is shady, and the solar panels to be in a field open to the sky. We will describe each part of the system in turn.
+          <br><br>
+          <img class= "full-width-image" src="assets/img/map_diagram.jpg">
+          <br><br>
+          The above image shows the locations of the hydrophones, streambox, and solar array. For version 1 of the stream we located the stream box and mics high in an oak tree out of reach of curious ungulates. Hydrophones ran through blackthorn thicket to roots of large fallen willow. The solar array was located  ESE of a stand of oaks to minimise afternoon shadow.
+          <div class="break anchor-section" id="streambox"></div>
+          <span class="bold">Streambox</span>
+          <br><br>
+          The basic streambox made and used by Soundcamp in a variety of places and situations consists of a Raspberry Pi Zero (a small computer) with an IQ Audio Codec Zero (a small soundcard) mounted on the top of it. An SD card serves as a solid state drive. A pair of electret condenser microphones mounted in the walls of the enclosure convey a roughly binaural sense of space. In this case, hydrophones resting on the bottom of the pond, spaced about a meter apart, create an equivalent under the water.
+          <br><br>
+          The pilot installation had one channel from a conventional microphone in air, and one from a hydrophone. The streambox was installed in the branches of a large oak tree to keep it out of the reach of pigs and other animals. It used a Focusrite studio soundcard with 48V Phantom power and an Aquarian hydrophone, connected by a 50m XLR cable, which ran down the tree through a length of conduit to the pond. The custom air microphone used two Primo EM-272 capsules to create a device with very low self-noise, following advice posted by Vicki Powys [<a target="_blank" href="https://caperteebirder.com">caperteebirder.com</a>]. This interim design gave the impression of having one ear in the water and one out.
+          <br><br>
+          By installing two instances of Darkice onto a single Raspberry Pi 4, we were able to connect two pairs of microphones. Two fresh water hydrophones plug into the Codec Zero soundcard via a dual mono to stereo adaptor, and use its bias voltage (Plug in Power) to run a preamplifier integrated into each hydrophone. The hydrophones [<a target="_blank" href="https://terranovapress.com/books/aquabeat-hydrophone">terranovapress.com</a>] are produced by David Rothenberg based on a design by Zach Poff for Pond Station [<a target="_blank" href="https://zachpoff.com">zachpoffzachpoff.com</a>]. A studio soundcard (Komplete Audio 2 by Native Instruments) supplies 48VDC (Phantom Power) to two custom microphones with Primo Capsules, using the Simple P48 circuit to step the voltage down to around 5V for the capsules [+Streambox with Focusrite Soundcard, <a target="_blank" href="https://tombenedict.wordpress.com/2016/03/05/diy-microphone-em172-capsule-and-xlr-plug/">tombenedict.wordpress.com</a>]. Windscreens made with foam and synthetic fur reduce wind noise. Overall, this is an affordable setup which gives a sense of space and detail in both air and water streams [<a target="_blank" href="https://wilding.radio">wilding.radio</a>].
+          <div class="break anchor-section" id="technical-specifications"></div>
+          <span class="bold">Technical Specifications</span>
+          <br><br>
+          <span class="bold">Streambox (basic model – early 2025)</span>
+          <br>
+          <br>
+          <img class= "full-width-image" src="assets/img/resources_equipment.jpg">
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">1</div>
+            <div class="no-overflow-list__content">Raspberry Pi Zero W (with wifi; header pins soldered)</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">2</div>
+            <div class="no-overflow-list__content">IQ Audio Code Zero (audio hat with microphone input and ADC) and fixings</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">3</div>
+            <div class="no-overflow-list__content">Anti-static bag</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">4</div>
+            <div class="no-overflow-list__content">SD Card (Class 10 8 GB; works as the Pi's hard drive)</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">5</div>
+            <div class="no-overflow-list__content">Windscreens (fur with cable ties <) +Microphones manual on how to make them.</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">6</div>
+            <div class="no-overflow-list__content">Modem (Huawei E8372 or ZTE MF79u) connects to internet and sets up a local wifi network</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">7</div>
+            <div class="no-overflow-list__content">On The Go (OTC) cable (micro USB plug to USB A socket; 15.5cm)</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">8</div>
+            <div class="no-overflow-list__content">USB extension cable (1m +)</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">9</div>
+            <div class="no-overflow-list__content">Stereo microphones. Available from Soundcamp, Micbooster or see these DIY notes:+Microphones manual.</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">10</div>
+            <div class="no-overflow-list__content">Cable glands (Right channel lock nut Red)</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">11</div>
+            <div class="no-overflow-list__content">Dribox enclosure with 2 pre-drilled holes</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">12</div>
+            <div class="no-overflow-list__content">Battery (may be left out for transport)</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">13</div>
+            <div class="no-overflow-list__content">Battery cable (micro USB to USB A; to charge the battery or power the Pi)</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">14</div>
+            <div class="no-overflow-list__content">Power adapter (mains 110-220VAC to 5VDC with interchangeable plugs)</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">15</div>
+            <div class="no-overflow-list__content">Battery eg Anker powercore 20100.</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">16</div>
+            <div class="no-overflow-list__content">SIM card</div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">17</div>
+            <div class="no-overflow-list__content">OPTIONAL – POE adapter for Pi Zero: <a target="_blank" href="https://thepihut.com/products/poe-to-micro-usb-adapter-for-pi-zero-ethernet-power-ieee-802-3af-compliant">thepihut.com</a></div>
+          </div>
+          <br><br>
+          For assembly and detail, see the manual for building from a kit or from scratch: <a href="https://paper.dropbox.com/doc/Streambox-Manual-SpringSummer-2025--CqxNSeoxAbLgnWBKvz5xoDi6Ag-wprqdxETG427QD1cj22NO" target="_blank">+Streambox Manual – Spring/Summer 2025</a>
+          <br><br>
+          This streambox provides a web interface for changing settings such as gain. The stream appears on the Locus Sonus live soundmap and can be embedded in a page or otherwise used for various ecoacoustic projects. The streambox is the result of extensive collaborations (please see Credits).
+          <br><br>
+          The basic model above can be modified for particular uses:
+          <br><br>
+          <span class="bold">Streambox with router</span>
+          <br><br>
+          For a possibly more reliable connection to the internet, you can use a dedicated router. At Knepp we put an antenna on a pole, since the internet signal near the ground is weak.
+          <br><br>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">—</div>
+            <div class="no-overflow-list__content">Router: Teltonika RUT240: <a target="_blank" href="https://teltonika-networks.com/es/products/routers/rut240">teltonika-networks.com</a></div>
+          </div>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">—</div>
+            <div class="no-overflow-list__content">Antenna: Poynting PUCK-2 IOT/M2M 4G/5G 2-IN-1 Transportation Puck Antenna or similar</div>
+          </div>
+          <br><br>
+          We have also successfully used the larger:
+          <br><br>
+          <div class="no-overflow-list">
+            <div class="no-overflow-list__item">—</div>
+            <div class="no-overflow-list__content">Fullband MIMORAD Outdoor 4G/5G MIMO Antenna 6dBi Peak Gain with 2 x 5m cables with SMA Male Connectors</div>
+          </div>
+          <br><br>
+          <span class="bold">Streambox with hydrophones</span>
+          <br><br>
+          The hydrophones which we use at Knepp are the result of a collaboration between Zach Poff and David Rothenberg. They incorporate a preamp/impedance matcher and are optimised for quiet sounds in fresh water. They run on PIP and have low self-noise/hiss. In a separated pair, they can give a persuasive sense of space. This requires a Y cable with two mono sockets combining to a single stereo plug (for use with the codec zero hat in a streambox). Aquabeat hydrophones from Terra Nova Press: <a target="_blank" href="https://www.terranovapress.com/books/aquabeat-hydrophone">terranovapress.com</a>
+          <br><br>
+          <span class="bold">Streambox with 4 channels</span>
+          <br><br>
+          Soundcamp built a streambox with two instances of darkice running on a single Raspberry Pi. One references a USB soundcard; the other references the Codec Zero hat on the Pi. This approach offers energy savings over a system based on two separate Pi’s, and simplifies the Power over Ethernet (PoE) configuration. The software is a prototype. Please email us for details [<a  href="mailto:contact@soundtent.org">contact@soundtent.org</a>].
+          <br><br>
+          <span class="bold">Streambox with bat detector</span>
+          <br><br>
+          The streambox can accept a line level feed from a heterodyne bat detector, making it possible to relay sounds of bat echolocation pitched down for human listening in real time.
+          <br><br>
+          <span class="bold">Power</span>
+          <br><br>
+          A streambox can run for a couple of days on a power bank such as the Anker 2100, which fits in the housing. It can run on a larger battery for a week or so. If near a source of power, the streambox can be plugged directly with a mains adaptor, as for TSAC1 at Wave Farm. It can connect to the internet using a USB modem, Wifi or an ethernet cable to a router. Long term installation off-grid needs a renewable energy source. The Knepp live streams run on solar power. Martin Scaiff established that a roughly 200W solar collector was needed to run a streambox off-grid all year round in SE England. By contrast, Locus Sonus used a much smaller (50W?) collector for a stream at l’Étang de Berre near Marseille, where there is sun most days. We installed two 100W rectangular mono-crystalline panels at 30° angles from the ground, facing south. They were mounted on adjustable steel frames. We used timber posts and wire mesh to create a small enclosure fenced off from livestock.
+          <br><br>
+          <img class= "full-width-image" src="assets/img/solar_array.jpg">
+          <br><br>
+          A simple enclosure was built around the solar panels for mutual protection from and for fauna. This meant grass was not cropped by rabbits or cows and needed to be trimmed in summer to prevent shadow on the panels. Leaving rabbit sized holes or adding legs to the aluminum frame might improve the design.
+          <br><br>
+          The panels were connected in parallel using waterprooof Y adaptors and T4 connectors. The cables were brought into an over-sized battery box, which houses the battery and other parts of the circuit. A later installation has successfully used a bee nucleus box, mounting the components on a board at the top of the box, going down to the battery in the base. That installation also used powerpole connectors to make connection and dis- connection easier. It included a fuse on the + side of the circuit and used ferrules in preference to bare wire ends, which made connections easier and more secure.
+          <br><br>
+          The solar panels feed into a Victron charge controller, which handles the charging of an 80Ah lead acid battery and connection to the load. The charge controller cuts off the load at a set voltage to avoid over-discharge of the battery and prolong its life. The output of the charge controller goes directly at 12VDC to the Teltonika router (via one bare end and a proprietary plug) and to a 12VDC POE injector. The injector steps the voltage up to 48VDC and passes ( ‘injects’) it to a pair of wires in an ethernet cable. The injector also accepts a data connection from the Teltonika router, housed in the same box, with an antenna on a timber pole in the stock-proof enclosure. The injector passes the data feed through to a separate pair of wires in the same ethernet cable. This long ethernet cable plugs into a socket in the injector and runs around 70m to the streambox, where it connects to a splitter. This feeds the power and data lines separately to the power socket and ethernet port of the Pi 4. (For the basic streambox, this is done by a proprietary POE splitter/adapter included in the parts list.)
+          <br><br>
+          POE combines data connection and power in the same lightweight, affordable cable. It avoids the problem of voltage drop over distance. We initially used a standard CAT5e / CAT6 cable in a length of corrugated pipe. The pipe was buried under a path for extra protection. The corrugated pipe did not provide a complete shield. The cable was at risk of damage while being pulled through the pipe during installation, and later it was chewed by rodents. We eventually replaced it with an armoured cable that incorporates a metal sheath in its construction. This was left without additional protection and has proved resilient. On the other hand, it is expensive, heavy and inflexible, making it harder to install and terminate and interface with other lightweight components. We noted that working with ethernet equipment designed for indoor networking environments could be awkward in the field. Similarly, working with standard networking equipment, rather than studio grade audio networking equipment, led to some unpredictability. An apparently ‘better’ (more rugged, ‘industrial’ spec) splitter, for instance, turned out to be noisy. Hydrophones, in particular, are sensitive to electromagnetic interference and tend to reveal self-noise (e.g. sounds of internal processing) in the signal chain, which are not easy to interpret or troubleshoot.
+          <br><br>
+          As a research project, the Knepp installation proceeded bit by bit. It included false starts, spaghetti (Cyberforest), and experiences with other animals (pigs, snakes, ants). Partly as a result, it took a long time to get up and running in a stable way. At the moment (10 March 2025), oak trees to the West of the solar panels have grown, reducing overall solar gain and causing the system to move into a seasonal and weather-responsive mode, with outages over winter and overcast periods. When the sun has re- charged the system, the stream returns. A later version of the solar powered streambox, running a single stream, is being trialled at Gair Wood outside Leeds. This uses a more frugal arrangement of a 20W panel and 40 or even 30 Ah battery, developed by Nick Millar. This is a simpler installation, with the  solar system powering a  single basic streambox with modem, as described in the Manual linked above.
+          <div class="break anchor-section" id="multispecies-considerations"></div>
+          <span class="bold">Multispecies Practical & Ethical Considerations</span>
+          <br><br>
+          Incorporating electronic infrastructure into a natural habitat creates opportunities and risks  for resident species that need consideration. 
+          <br><br>
+          Consultation and continued communication with the landowner and users of the spaces are important. This will surface key environmental or social challenges and help ameliorate unexpected ones as they arise.  Live streaming to a public website requires consideration of privacy. The knepp site is away from publicly accessible areas, with the only visitors being part of the beaver tours. They are informed that their voices may be broadcast. The specifics of each case should be considered.
+          <br><br>
+          Despite close planning with the estate ecologist, a surprising number of species found various electronic components to be appealing habitat, with varying degrees of entertainment and impact on and for the system and the creatures. 
+          <br><br>
+          <img class= "full-width-image" src="assets/img/electrical_1.jpg">
+          <br><br>
+          Mason bees created cells across the charge controller, creating a short circuit (not sure what they gained or suffered). After this we taped up the side with electrical tape and didn’t happen again. 
+          <br><br>
+          <img class= "full-width-image" src="assets/img/bugs_in_box.jpg">
+          <br><br>
+          Wood (?) ants created a nursery in the raspberry pi case, the humidity corroded the chip and ethernet sockets. We assume they are attracted to the dry warmth of the box; some species are also known to have an affinity for electric fields. We tried “ant proofing” the box, but ultimately upgraded to a small peli case which has been creature-proof for several years. 
+          <br><br>
+          Mice or other rodents chewed through the ethernet cable where it was not shielded by tubing. We upgraded to an armoured ethernet cable that was difficult to terminate, but protected from wildlife.
+          <br><br>
+          <img class= "full-width-image" src="assets/img/electrical_2.jpg">
+          <br><br>
+          Slow worms and grass snakes seemed to really enjoy the dry warmth  of the plastic battery box. They caused no harm and have been a constant presence. 
+          <br><br>
+          We learned that pigs and especially teenage piglets revel in unterring carefully interred cables. We just ensured no harm could come to them, that all cables were protected and let the grass grow and their interest wane.           
+          <div class="break anchor-section" id="credits"></div>
+          <hr>
+          <div class="break"></div>
+          <span class="bold">Credits / References</span>
+          <br><br>
+          The streaming software was developed by Stéphane Cousot at Locus Sonus based on the open source Darkice by Ákos Maróy and  Rafael Diniz [<a target="_blank" href="http://darkice.org">darkice.org</a>]. The microphone design benefitted from input by Udo Noll [<a target="_blank" href="https://aporee.org">aporee.org</a>] and others.
+          <br><br>
+          — How to on streambox
+          <br>
+          — Solar how to
+          <br>
+          — Description of the installation
+          <br>
+          — Links to technical and other resources / contexts
+        </span>
+        <div class="break"></div>
+        <div class="break"></div>
+        <img class="footer-sketch" src="assets/img/white.jpg" onload="loadRandomFooter(this);"> 
+        <div class="break"></div>
+      </div>
+     <div class="footer anchor-section">
+    </div>
+  </div>
+
+</body>
+</html>
