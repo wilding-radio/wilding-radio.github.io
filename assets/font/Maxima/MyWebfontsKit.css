@@ -1,0 +1,43 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3867246, 2020-12-16T11:57:38-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Maxima Light by URW Type Foundry
+ * URL: https://www.myfonts.com/collections/urw-foundry
+
+ * Webfont: Maxima Medium by URW Type Foundry
+ * URL: https://www.myfonts.com/collections/urw-foundry
+
+ * Webfont: Maxima Bold by URW Type Foundry
+ * URL: https://www.myfonts.com/collections/urw-foundry
+
+ * Webfont: Maxima Bold Condensed by URW Type Foundry
+ * URL: https://www.myfonts.com/collections/urw-foundry
+ 
+ * © 2025 MyFonts Inc. */
+
+
+  
+@font-face {
+  font-family: "MaximaMedium";
+  src: url('webFonts/MaximaMedium/font.woff2') format('woff2'), url('webFonts/MaximaMedium/font.woff') format('woff');
+}
+@font-face {
+  font-family: "MaximaBold";
+  src: url('webFonts/MaximaBold/font.woff2') format('woff2'), url('webFonts/MaximaBold/font.woff') format('woff');
+}
+@font-face {
+  font-family: "MaximaLight";
+  src: url('webFonts/MaximaLight/font.woff2') format('woff2'), url('webFonts/MaximaLight/font.woff') format('woff');
+}
+@font-face {
+  font-family: "MaximaBoldCondensed";
+  src: url('webFonts/MaximaBoldCondensed/font.woff2') format('woff2'), url('webFonts/MaximaBoldCondensed/font.woff') format('woff');
+}
+

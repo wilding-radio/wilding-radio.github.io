@@ -16,7 +16,8 @@ body {
   height:55px;
 }
 .bold {
-  font-weight: bold;
+  /* font-weight: bold; */
+  font-family: "MaximaMedium" !important;
 }
 .underline, 
 a,
@@ -66,7 +67,7 @@ input {
 ######################## typography ########################
 */
 
-@font-face {
+/* @font-face {
   font-family: "Maximaef";
   font-weight:regular;
   src:local("Maximaef"), url("../assets/font/maximaef-light.otf") format("opentype");
@@ -75,14 +76,14 @@ input {
   font-family: "Maximaef";
   font-weight:bold;
   src:local("Maximaef"), url("../assets/font/maximaef-medium.otf") format("opentype");
-}
+} */
 
 body,
 input,
 textarea,
 button,
 .smaller-text {
-  font-family: "Maximaef";
+  font-family: "MaximaLight";
 /*  letter-spacing:-0.5px;*/
   font-size:22px;
   line-height:26px;
@@ -92,7 +93,7 @@ hr {
   margin:0;
 }
 .larger-text {
-  font-family: "Maximaef";
+  font-family: "MaximaLight";
   font-size: 32px;
   line-height: 46px;
 }
