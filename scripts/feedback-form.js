@@ -8,6 +8,7 @@ function confirmSent(submitElement,thebody) {
 	console.log(thebody);
 	submitElement.classList.remove("feedback__submit");
 	submitElement.innerHTML = "Thanks for giving your feedback!"
+	submitElement.onclick = ""
 	feedbackForm.reset();
 }
 
@@ -19,17 +20,33 @@ function sendfeedbackemail(submitElement) {
 	feedbackNameFutureResearch = document.getElementsByClassName("feedback__name_future_research")[0].value;
 	feedbackEmailFutureResearch = document.getElementsByClassName("feedback__email_future_research")[0].value;
 
-	var thebody = "Name and email:<br>"+ feedbackName + "<br>"+feedbackEmail+"<br><br> Name and email for future research:<br>"+feedbackNameFutureResearch + "<br>"+feedbackEmailFutureResearch+"<br><br> Body text:<br><br>"+feedbackBody.replace(/(?:\r\n|\r|\n)/g, '<br>')
-
-	Email.send({
-	    SecureToken : "c7091985-1af0-4589-a4ae-3cd5dc269f64",
-	    To : 'wildingradio@gmail.com',
-	    From : "wilding.radio.feedback@soundtent.org",
-	    Subject : "New wilding.radio feedback",
-	    Body : thebody
-	}).then(
-	confirmSent(submitElement, thebody)
-	);
+	if (feedbackBody || feedbackName || feedbackEmail || feedbackNameFutureResearch || feedbackEmailFutureResearc) {
+		var data = {
+			service_id: 'service_onrvqui',
+			template_id: 'template_lasyg2a',
+			user_id: 'j1GSki_AKrHZwIEmQ',
+			template_params: {
+				'feedbackBody': feedbackBody,
+				'feedbackName': feedbackName,
+				'feedbackEmail': feedbackEmail,
+				'feedbackNameFutureResearch': feedbackNameFutureResearch,
+				'feedbackEmailFutureResearch': feedbackEmailFutureResearch
+			}
+		};
+		
+		$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+			type: 'POST',
+			data: JSON.stringify(data),
+			contentType: 'application/json'
+		}).done(function() {
+			confirmSent(submitElement, feedbackBody)
+		}).fail(function(error) {
+			console.log('mailjs send error: ' + JSON.stringify(error));
+		});
+	}
+	else {
+		console.log("Feedback form fields empty. Not sending mail.");
+	}
 }
 
 
