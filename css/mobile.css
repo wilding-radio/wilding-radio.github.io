@@ -8,7 +8,7 @@
 	.water,
 	.smaller-text,
 	.header a {
-		font-family: "Maximaef";
+		/* font-family: "Maximaef"; */
 		letter-spacing:-0.5px;
 		font-size:16px;
 		line-height:21px;
@@ -228,7 +228,7 @@
 	.water,
 	.smaller-text,
 	.header a {
-		font-family: "Maximaef";
+		/* font-family: "Maximaef"; */
 		letter-spacing:-0.5px;
 		font-size:18px;
 		line-height:23px;
