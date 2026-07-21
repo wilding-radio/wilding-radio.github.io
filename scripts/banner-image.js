@@ -41,11 +41,11 @@ function loadBanner(elem){
 	var imageUrl = "";
 
 	if (hoursAtUTC0 >= sunsetAtUTC0+2 || hoursAtUTC0 < sunriseAtUTC0+2) {
-		imageUrl = "night.jpg";
+		imageUrl = "day.jpg"; // change this back to night
 	}
 
 	else if (hoursAtUTC0 < sunriseAtUTC0+2) {
-		imageUrl = "dawn.jpg";
+		imageUrl = "dawn.jpg"; // change this back to dawn
 	}
 
 	else if (hoursAtUTC0 < sunsetAtUTC0-2) {
@@ -53,7 +53,7 @@ function loadBanner(elem){
 	}
 
 	else if (hoursAtUTC0 < sunsetAtUTC0+2) {
-		imageUrl = "dusk.jpg";
+		imageUrl = "dusk.jpg"; // change this back to dusk
 	}
 
 	// elem.src = "https://wilding.radio/assets/img/knepp/"+imageUrl;
